@@ -1,12 +1,18 @@
 #!/bin/bash
 
-# install python dependencies
-
 # sudo apt-get install pipx
 # pipx install reportlab==3.6.12
 # pipx install pypdf2==3.0.1
-pip install --break-system-packages reportlab==3.6.12 pypdf2==3.0.1
 
+# install python dependencies
+OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+if [ $OS=="Ubuntu" ]; then
+  pip install --break-system-packages reportlab==3.6.12 pypdf2==3.0.1
+else
+  pip install reportlab==3.6.12 pypdf2==3.0.1
+fi
+
+# Variables
 SCRIPTS_PATH=~/scripts
 PROFILE_PATH=~/.profile
 APP_INSTALL_PATH=~/.pdf2page
@@ -18,12 +24,12 @@ if [ ! -d "$APP_INSTALL_PATH" ]; then
     mkdir $APP_INSTALL_PATH
 fi
 
-rm -r $APP_INSTALL_PATH/*
+rm -rf $APP_INSTALL_PATH/*
 cp -R ./src/* $APP_INSTALL_PATH
 
 # Install shell script
 cp ./scripts/pdf2page.sh $SCRIPTS_PATH/pdf2page
-# echo 'export PATH="$PATH:$HOME/scripts"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:$HOME/scripts"' >> $PROFILE_PATH
 
 # copy the content of ile-manager folder in ~/.local/share/nemo/scripts
 if [ -d "$NEMO_SCRIPTS_PATH" ]; then
@@ -34,3 +40,5 @@ fi
 if [ -d "$NAUTILUS_SCRIPTS_PATH" ]; then
   cp -R ./file-manager/* ~/.local/share/nautilus/scripts
 fi
+
+echo "Installation completed, restart the user session to apply the changes."

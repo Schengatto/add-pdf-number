@@ -30,8 +30,14 @@ from PyPDF2 import PdfWriter, PdfReader
 
 def createPagePdf(num, tmp):
     c = canvas.Canvas(tmp)
+    # c.setFontSize(size=font_size)
     for i in range(1,num+1): 
-        c.drawString((210//2)*mm, (4)*mm, str(i))
+        if position == "center":
+            c.drawCentredString((210//2)*mm, (4)*mm, str(i))
+        elif position == "left":
+            c.drawString((25)*mm, (4)*mm, str(i))
+        elif position == "right":
+            c.drawRightString((210-25)*mm, (4)*mm, str(i))
         c.showPage()
     c.save()
     return 
@@ -49,17 +55,17 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         sys.exit(1)
 
-    output_folder = str(Path.home()) + "/pdf-numbered-output/"
-    if len(sys.argv) >= 3:
-        output_folder = sys.argv[2]
-
     position = "center"
-    if len(sys.argv) >= 4:
-        position = sys.argv[3]
+    if len(sys.argv) >= 3:
+        input_position = sys.argv[2]
+        if input_position == "left" or input_position == "right":
+            position = input_position
 
-    size = "10pt"
-    if len(sys.argv) >= 5:
-        size = sys.argv[4]
+    font_size = 1.2
+    if len(sys.argv) >= 4:
+        input_font_size = sys.argv[3]
+        if input_font_size.isdigit():
+            font_size = float(input_font_size) / 10
 
     pdf_path = sys.argv[1]
     pdf_file_name = os.path.basename(pdf_path)
