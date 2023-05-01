@@ -5,8 +5,8 @@
 # pipx install pypdf2==3.0.1
 
 # install python dependencies
-OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
-if [ $OS=="Ubuntu" ]; then
+OPERATIVE_SYSTEM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+if [ $OPERATIVE_SYSTEM=="Ubuntu" ]; then
   pip install --break-system-packages reportlab==3.6.12 pypdf2==3.0.1
 else
   pip install reportlab==3.6.12 pypdf2==3.0.1
