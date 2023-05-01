@@ -14,7 +14,7 @@ In order to execute this script you must ensure to have Python 3 installed in yo
 
 3. Open a shell terminal and move to folder where the content of the zip file was extracted.
 
-4. Make sure that the file `./install.sh` is executable. You can run the command `chmod +x install.sh` to make it executable.
+4. Make sure that the file `. ./install.sh` is executable. You can run the command `chmod +x install.sh` to make it executable.
 
 5. Execute the command `./install.sh`.
 
