@@ -6,6 +6,12 @@ If you have Nemo or Nautilus as file manager you will also find this script as a
 ## Requirements
 In order to execute this script you must ensure to have Python 3 installed in your system.
 
+> sudo apt-get install python3
+
+You also needs `pip`
+
+> sudo apt-get install pip
+
 ## How to install
 
 1. Download the zip file of this project using the green button "CODE".
