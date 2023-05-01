@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gnome-terminal -- pdf2page $1
