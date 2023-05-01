@@ -6,7 +6,7 @@
 
 # install python dependencies
 OPERATIVE_SYSTEM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
-if [ $OPERATIVE_SYSTEM=="Ubuntu" ]; then
+if [ ! -z $OPERATIVE_SYSTEM ] && [ $OPERATIVE_SYSTEM=="Ubuntu" ]; then
   pip install --break-system-packages reportlab==3.6.12 pypdf2==3.0.1
 else
   pip install reportlab==3.6.12 pypdf2==3.0.1
@@ -18,6 +18,11 @@ PROFILE_PATH=~/.profile
 APP_INSTALL_PATH=~/.pdf2page
 NEMO_SCRIPTS_PATH=~/.local/share/nemo/scripts
 NAUTILUS_SCRIPTS_PATH=~/.local/share/nautilus/scripts
+
+red='\e[0;31m'
+yellow='\e[0;33m'
+cyan='\e[0;36m'
+white='\e[0;37m'
 
 # fix executable files
 chmod +x ./scripts/pdf2page.sh
