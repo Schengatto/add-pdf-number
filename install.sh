@@ -6,7 +6,8 @@
 
 # install python dependencies
 OPERATIVE_SYSTEM=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
-if [ ! -z $OPERATIVE_SYSTEM ] && [ $OPERATIVE_SYSTEM=="Ubuntu" ]; then
+OS=${OPERATIVE_SYSTEM:="unknown"}
+if [ ! -z $OS ] && [ $OS=="Ubuntu" ]; then
   pip install --break-system-packages reportlab==3.6.12 pypdf2==3.0.1
 else
   pip install reportlab==3.6.12 pypdf2==3.0.1
