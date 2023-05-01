@@ -19,6 +19,10 @@ APP_INSTALL_PATH=~/.pdf2page
 NEMO_SCRIPTS_PATH=~/.local/share/nemo/scripts
 NAUTILUS_SCRIPTS_PATH=~/.local/share/nautilus/scripts
 
+# fix executable files
+chmod +x ./scripts/pdf2page.sh
+chmod +x ./file-manager/pdf2page
+
 # install python app
 if [ ! -d "$APP_INSTALL_PATH" ]; then
     mkdir $APP_INSTALL_PATH
