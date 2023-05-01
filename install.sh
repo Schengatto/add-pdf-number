@@ -22,6 +22,7 @@ NAUTILUS_SCRIPTS_PATH=~/.local/share/nautilus/scripts
 # fix executable files
 chmod +x ./scripts/pdf2page.sh
 chmod +x ./file-manager/pdf2page
+chmod +x ./src/uninstall.sh
 
 # install python app
 if [ ! -d "$APP_INSTALL_PATH" ]; then
