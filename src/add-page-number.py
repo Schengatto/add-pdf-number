@@ -32,11 +32,11 @@ def createPagePdf(num, tmp):
     c = canvas.Canvas(tmp)
     # c.setFontSize(size=font_size)
     for i in range(1,num+1): 
-        if position == "center":
+        if position == "center" or position == "C" or position == "c":
             c.drawCentredString((210//2)*mm, (4)*mm, str(i))
-        elif position == "left":
+        elif position == "left" or position == "L" or position == "l":
             c.drawString((25)*mm, (4)*mm, str(i))
-        elif position == "right":
+        elif position == "right" or position == "R" or position == "r":
             c.drawRightString((210-25)*mm, (4)*mm, str(i))
         c.showPage()
     c.save()
@@ -55,10 +55,11 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
         sys.exit(1)
 
+    valid_position_values = ["center", "left", "right", "c", "l", "r", "C", "L", "R"]
     position = "center"
     if len(sys.argv) >= 3:
         input_position = sys.argv[2]
-        if input_position == "left" or input_position == "right":
+        if input_position in valid_position_values:
             position = input_position
 
     font_size = 1.2

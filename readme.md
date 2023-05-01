@@ -7,6 +7,7 @@ If you have Nemo or Nautilus as file manager you will also find this script as a
 In order to execute this script you must ensure to have Python 3 installed in your system.
 
 ## How to install
+
 1. Download the zip file of this project using the green button "CODE".
 
 2. Extract the content of the zip file.
@@ -21,10 +22,10 @@ In order to execute this script you must ensure to have Python 3 installed in yo
 
 ## How to uninstall
 
-1. Remove the folder "scripts" inside your home folder
+1. Remove the file `~/scripts/pdf2page` inside your home folder.
 
-2. Open the file "~/.profile" and delete the `row export PATH="$PATH:$HOME/scripts"`.
+2. Open the file `~/.profile` and delete the `row export PATH="$PATH:$HOME/scripts"`.
 
-3. Remove the file "pdf2page" inside the folder `~/.local/share/nemo/scripts`.
+3. Remove the file `pdf2page` inside the folder `~/.local/share/nemo/scripts`.
 
-4. Remove the folder "~/.pdf2page".
+4. Remove the folder `~/.pdf2page`.
