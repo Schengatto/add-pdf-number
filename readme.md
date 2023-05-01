@@ -8,7 +8,7 @@ In order to execute this script you must ensure to have Python 3 installed in yo
 
 > sudo apt-get install python3
 
-You also needs `pip`
+You also need `pip` to be installed
 
 > sudo apt-get install pip
 
