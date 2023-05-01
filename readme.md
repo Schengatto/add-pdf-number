@@ -41,4 +41,4 @@ You also need `pip` to be installed
 
 1. Open a terminal
 
-2. Execture the command `. ~/.pdf2page/uninstall.sh`
+2. Execture the command `/bin/bash ~/.pdf2page/uninstall.sh`
